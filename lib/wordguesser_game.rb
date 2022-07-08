@@ -11,7 +11,7 @@ class WordGuesserGame
 
   def initialize(word)
     @word = word
-    @word_with_guesses = '-' * word.length
+    @word_with_guesses = "-" * word.length
     @guesses = ''
     @wrong_guesses = ''
   end
@@ -44,7 +44,7 @@ class WordGuesserGame
       @guesses += letter
       while (i = @word.index(letter)) != nil
         @word_with_guesses[i] = letter
-        @word[i] = '-'
+        @word[i] = @word[i].upcase
       end
       true
     else
@@ -64,6 +64,10 @@ class WordGuesserGame
     else
       :win
     end
+  end
+
+  def actual
+    @word.downcase
   end
 
 end
